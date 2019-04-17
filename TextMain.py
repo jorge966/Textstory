@@ -1,5 +1,52 @@
 import time
-import Dota_2items as item
+#import Dota_2items as item
+import Hero as hero
+import attacks as atk
+import random
+
+
+puck = hero.Hero("puck", 100)
+tinker = hero.Hero("tinker", 100)
+
+
+puck_auto = atk.Moves("basic attack", 5)
+Illusory_orb = atk.Moves("Illusory Orb", 15)
+Phase_Shift = atk.Moves("Phase Shift", 0)
+Waning_Rift = atk.Moves("Waning Rift", 30)
+Dream_Coil = atk.Moves("Dream Coil", 20)
+tinker_auto = atk.Moves("basic attack", 7)
+laser = atk.Moves("Laser", 30)
+Heat_Seeking_Missile = atk.Moves("Heat-Seeking Missile", 40)
+March_of_the_Machines = atk.Moves("March of the Machines", 10)
+Rearm = atk.Moves("Rearm", 0)
+
+
+
+
+
+puckmoves = []
+
+puckmoves.append(puck_auto)
+puckmoves.append(Illusory_orb)
+puckmoves.append(Phase_Shift)
+puckmoves.append(Waning_Rift)
+puckmoves.append(Dream_Coil)
+
+
+
+
+tinkermoves = []
+
+tinkermoves.append(tinker_auto)
+tinkermoves.append(laser)
+tinkermoves.append(Heat_Seeking_Missile)
+tinkermoves.append(March_of_the_Machines)
+tinkermoves.append(Rearm)
+
+
+
+
+
 
 startingitemsDict = {
     "tango's": ["Tango's", 90],
@@ -13,6 +60,7 @@ startingitemsDict = {
 
 
 def Intro():
+
         print("########################################################")
         print("Welcome to a Day in life of Gavin")
         print("")
@@ -34,17 +82,50 @@ def Intro():
         print("")
         print("Gavin says with a certain arrogance that he plays an insane puck (in his mmr bracket) and can easily carry")
         time.sleep(2)
-def Earlygame():
-    while(True):
-        print("The game starts and gavin is seeing what items to buy")
-        print("he decides to open a guide to see what other people pick on puck early game")
-        for key in enumerate(startingitemsDict):
-            values = startingitemsDict(key)
-            items = item.items[values[0], values[1]]
-            print(str(items))
-            break
-Earlygame()
+#def Earlygame():
+ #   while(True):
+  #      print("The game starts and gavin is seeing what items to buy")
+   #     print("he decides to open a guide to see what other people pick on puck early game")
 
+def MidLanegame():
+
+    print("The game starts and gavin is facing a tinker mid")
+    time.sleep(2)
+    print("He goes in with tangoes,magic stick, and branches")
+    time.sleep(2)
+    print("Choose what you want to:")
+    time.sleep(2)
+    print("1.try to farm the wave")
+    time.sleep(.5)
+    print("2.poke the tinker down with auto attacks ")
+    time.sleep(.5)
+    print("3.use a move")
+    time.sleep(2)
+    print("Gavin....")
+    if (puck.Gethp() > 0):
+        while True:
+            pickoption = input(":")
+            if pickoption == "1":
+                print(" see's an opportunity to get farm and.....")
+                random_input = random.randint(1, 2)
+                if random_input == 1:
+                    print("get's some of the wave! he compliments himself in his mind knowing he at least got some farm")
+                if random_input == 2:
+                    print("got unlucky because tinker happened to go get farm at the same time and hit you with his laser making you miss! you take damage and get no farm! ")
+                    lossHp = puck.Sethp(puck.Gethp() - laser.GetDamage())
+                    print("you took" + (str(laser.GetDamage())) + " Damage and now have " + (str(puck.Sethp(lossHp))) + "Hp")
+            else:
+                print("You did nothing and died")
+                break
+
+
+
+
+
+
+
+
+MidLanegame()
 
 
 
