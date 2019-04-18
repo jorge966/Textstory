@@ -17,6 +17,8 @@ class Hero:
 
     def Sethp(self, value):
         self.hp = value
+        if value < 0:
+            self.hp = 0
         return self.hp
 
 
