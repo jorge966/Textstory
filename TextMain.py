@@ -87,6 +87,9 @@ def Intro():
   #      print("The game starts and gavin is seeing what items to buy")
    #     print("he decides to open a guide to see what other people pick on puck early game")
 
+
+# Making this a function so i can use it in the future for a different lane,hero ,etc...
+
 def MidLanegame():
 
     print("The game starts and gavin is facing a tinker mid")
@@ -102,21 +105,25 @@ def MidLanegame():
     print("3.use a move")
     time.sleep(2)
     print("Gavin....")
-    if (puck.Gethp() > 0):
-        while True:
+
+    while True:
+        if (puck.Gethp() > 0):
             pickoption = input(":")
             if pickoption == "1":
                 print(" see's an opportunity to get farm and.....")
                 random_input = random.randint(1, 2)
                 if random_input == 1:
+                    time.sleep(1)
                     print("get's some of the wave! he compliments himself in his mind knowing he at least got some farm")
                 if random_input == 2:
-                    print("got unlucky because tinker happened to go get farm at the same time and hit you with his laser making you miss! you take damage and get no farm! ")
+                    time.sleep(1)
+                    print("got unlucky because "+tinker.Getname() + " happened to go get farm at the same time and hit you with his "+ laser.Getname() +" making you miss! you take damage and get no farm! ")
                     lossHp = puck.Sethp(puck.Gethp() - laser.GetDamage())
-                    print("you took" + (str(laser.GetDamage())) + " Damage and now have " + (str(puck.Sethp(lossHp))) + "Hp")
-            else:
-                print("You did nothing and died")
-                break
+                    print("you took " + (str(laser.GetDamage())) + " Damage and now have " + (str(puck.Sethp(lossHp))) + "Hp")
+        else:
+            time.sleep(2)
+            print("While you were trying to show off how good you are as " + puck.Getname() +" puck you failed to notice that " + tinker.Getname() + " already has you locked down and kills you!")
+            break
 
 
 
