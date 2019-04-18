@@ -122,7 +122,7 @@ def MidLanegame():
                     print("you took " + (str(laser.GetDamage())) + " Damage and now have " + (str(puck.Sethp(lossHp))) + "Hp")
         else:
             time.sleep(2)
-            print("While you were trying to show off how good you are as " + puck.Getname() +" puck you failed to notice that " + tinker.Getname() + " already has you locked down and kills you!")
+            print("While you were trying to show off how good you are as " + puck.Getname() +" you failed to notice that " + tinker.Getname() + " already has you locked down and kills you!")
             break
 
 
