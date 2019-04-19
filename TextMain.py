@@ -26,18 +26,20 @@ Rearm = atk.Moves("Rearm", 0)
 
 puckmoves = []
 
-puckmoves.append(puck_auto)
+
 puckmoves.append(Illusory_orb)
 puckmoves.append(Phase_Shift)
 puckmoves.append(Waning_Rift)
 puckmoves.append(Dream_Coil)
+
+#makes the list into a string to make it easier to print
 
 
 
 
 tinkermoves = []
 
-tinkermoves.append(tinker_auto)
+
 tinkermoves.append(laser)
 tinkermoves.append(Heat_Seeking_Missile)
 tinkermoves.append(March_of_the_Machines)
@@ -134,22 +136,34 @@ def Lanegame():
         if pickoption == "2":
             print("decides that he can try to poke him down with auto attacks and...")
             random_auto = random.randint(1,2)
+
             random_timeshit = random.randint(1,4)
 
-            totalhit = random_timeshit * puck_auto.GetDamage()
+            totalhit_1 = random_timeshit * puck_auto.GetDamage()
 
             totalhit_2 = random_timeshit * tinker_auto.GetDamage()
 
-            lossAutohp_1 = tinker.Sethp(tinker.Gethp() - totalhit)
+            lossAutohp_1 = tinker.Sethp(tinker.Gethp() - totalhit_1)
             lossAutohp_2 = puck.Sethp(puck.Gethp() - totalhit_2)
             if random_auto == 1:
                 time.sleep(1)
-                print("and catches him off guard and was able to hit him " + (str(random_timeshit)) + " times for " + (str(totalhit)) + " and now has " + (str(lossAutohp_1)) + " hp")
+                print("and catches him off guard and was able to hit him " + (str(random_timeshit)) + " times for " + (str(totalhit_1)) + " and now has " + (str(lossAutohp_1)) + " hp")
             if random_auto == 2:
                 time.sleep(1)
                 print("he fails to notice that the " + tinker.Getname() + " was uphill and with his")
                 print("horrible luck he misses every auto but tinker was able to hit him " + (str(random_timeshit)))
                 print(" times for " + (str(totalhit_2)) + " hp and now have " + (str(lossAutohp_2)) + " Hp")
+        if pickoption == "3":
+            print("in his mind thinks on what move would be correct")
+            fullStr = ' '.join([str(elem) for elem in puckmoves])
+            print(fullStr)
+
+
+            #for x in (len(puckmoves)):
+             #   print(vars(puckmoves(x)))
+              #  break
+            choose_move_input = input(": ")
+
 
 
 

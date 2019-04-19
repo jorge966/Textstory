@@ -1,4 +1,7 @@
 class Moves():
+
+    attacklist = []
+
     def __init__(self, name, damage):
         self.name = name
         self.damage = damage
@@ -13,3 +16,4 @@ class Moves():
     def SetDamage(self, value):
         self.damage = value
         return self.SetDamage()
+
