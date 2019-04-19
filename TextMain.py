@@ -1,52 +1,29 @@
 import time
 #import Dota_2items as item
 import Hero as hero
-import attacks as atk
+
+
 import random
 
 
 puck = hero.Hero("puck", 100)
 tinker = hero.Hero("tinker", 100)
 
+heroes = []
 
-puck_auto = atk.Moves("basic attack", 5)
-Illusory_orb = atk.Moves("Illusory Orb", 15)
-Phase_Shift = atk.Moves("Phase Shift", 0)
-Waning_Rift = atk.Moves("Waning Rift", 30)
-Dream_Coil = atk.Moves("Dream Coil", 20)
-tinker_auto = atk.Moves("basic attack", 7)
-laser = atk.Moves("Laser", 30)
-Heat_Seeking_Missile = atk.Moves("Heat-Seeking Missile", 40)
-March_of_the_Machines = atk.Moves("March of the Machines", 10)
-Rearm = atk.Moves("Rearm", 0)
+
+heroes.append(puck)
+heroes.append(tinker)
+
+#getmoves = atk.Moves.GetallPuckattacks()
 
 
 
 
+#leaving auto attacks here because i would have to change the code to reflect it using the new list in the other class
+puck_auto = hero.atk.Moves("basic attack", 5)
 
-puckmoves = []
-
-
-puckmoves.append(Illusory_orb)
-puckmoves.append(Phase_Shift)
-puckmoves.append(Waning_Rift)
-puckmoves.append(Dream_Coil)
-
-#makes the list into a string to make it easier to print
-
-
-
-
-tinkermoves = []
-
-
-tinkermoves.append(laser)
-tinkermoves.append(Heat_Seeking_Missile)
-tinkermoves.append(March_of_the_Machines)
-tinkermoves.append(Rearm)
-
-
-
+tinker_auto = hero.atk.Moves("basic attack", 7)
 
 
 
@@ -98,15 +75,7 @@ def Lanegame():
     time.sleep(2)
     print("He goes in with tangoes, magic stick, and branches")
     time.sleep(2)
-    print("Choose what you want to:")
-    time.sleep(2)
-    print("1.try to farm the wave")
-    time.sleep(.5)
-    print("2.poke the " + tinker.Getname() + "down with auto attacks ")
-    time.sleep(.5)
-    print("3.use a move")
-    time.sleep(2)
-    print("Gavin....")
+
 
     while True:
         if (puck.Gethp() > 0):
@@ -155,8 +124,10 @@ def Lanegame():
                 print(" times for " + (str(totalhit_2)) + " hp and now have " + (str(lossAutohp_2)) + " Hp")
         if pickoption == "3":
             print("in his mind thinks on what move would be correct")
-            fullStr = ' '.join([str(elem) for elem in puckmoves])
-            print(fullStr)
+            for item in puck.pucklist:
+                print(item.Getname())
+
+
 
 
             #for x in (len(puckmoves)):
