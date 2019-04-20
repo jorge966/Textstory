@@ -3,7 +3,7 @@ import attacks as atk
 
 
 class Hero:
-    pucklist = {atk.Moves("Illusory Orb", 15), atk.Moves("Phase Shift", 0), atk.Moves("Waning Rift", 30), atk.Moves("Dream Coil", 20)}
+    pucklist = [atk.Moves("Illusory Orb", 15), atk.Moves("Phase Shift", 0), atk.Moves("Waning Rift", 30), atk.Moves("Dream Coil", 20)]
     tinkerlist = [atk.Moves("Laser", 30), atk.Moves("Heat-Seeking Missile", 40), atk.Moves("March of the Machines", 10), atk.Moves("Rearm", 0)]
 
     def __init__(self, name, hp):
