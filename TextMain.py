@@ -79,6 +79,7 @@ def Lanegame():
 
     while True:
         if (puck.Gethp() > 0):
+            print("###############################################")
             print("Choose what you want to:")
             #time.sleep(2)
             print("1.try to farm the wave")
@@ -153,31 +154,43 @@ def Lanegame():
                     # time.sleep(2)
                     print("Gavin....")
                     forgot_q = input(": ")
-                    if forgot_q == "q":
+                    if forgot_q == "q" or "2" or "Q":
                         print("of course before you do your next move you remember that you still have to press Q again to teleport back to the tower safely")
                     else:
                         print("you completely forget that you still have to Q AGAIN to get back to teleport back to safety and take heavy damage")
-                        randomdamage = random.randint(30,40)
+                        randomdamage = random.randint(30, 40)
                         puck.Sethp(puck.Gethp() - randomdamage)
                         print("you now have " + (str(puck.Gethp())) + " Hp")
                 if move_pick == "2":
                     print("you get very close to the tinker hoping to catch him with your waning rift and... ")
-                    randomrift = random.randint(1,2)
-                    if randomrift == 1:
+                    time.sleep(2)
+                    randomroll = random.randint(1,2)
+                    if randomroll == 1:
                         print("with great success you hit him with your " + puck.Getpuck_attack2().Getname() + " and damage and silence him!")
                         tinker.Sethp(tinker.Gethp() - puck.Getpuck_attack2().GetDamage())
                         print("and with that tinker now has " + (str(tinker.Gethp())) + " Hp")
-                    if randomrift == 2:
-                        print("with horrible aim you whiff your waning rift and tinker takes advantage and hits your with his " + tinker.Gettinker_attack2().Getname())
+                    if randomroll == 2:
+                        print("with horrible aim you whiff your waning rift and tinker takes advantage and hits you with his " + tinker.Gettinker_attack2().Getname())
                         puck.Sethp(puck.Gethp() - tinker.Gettinker_attack2().GetDamage())
                         print(" you now have " + (str(puck.Gethp())) + " Hp")
+                if move_pick == "3":
+                    print(" while not paying attention you notice that tinker had a high ground ward and used " + tinker.Gettinker_attack2().Getname() + "and is tracking you")
+                    print(" you believe that you can perfectly time it so you can evade the attack and...")
+                    time.sleep(2)
+                    random_dodge = random.randint(1, 2)
+                    if random_dodge == 1:
+                        print(" with great skills or just plain luck you dodge the attack and get off scotch free ")
+                        time.sleep(2)
+                    if random_dodge == 2:
+                        print(" and with horrible reactions you completely misread the timing and get hit with his attack before you blink out")
+                        puck.Sethp(puck.Gethp() - tinker.Gettinker_attack2().GetDamage())
+                        print(" you now have " + (str(puck.Gethp())) + " Hp")
+                        time.sleep(2)
 
 
 
-            #for x in (len(puckmoves)):
-             #   print(vars(puckmoves(x)))
-              #  break
-            choose_move_input = input(": ")
+
+
         else:
             time.sleep(1)
             print("While you were trying to show off how good you are as " + puck.Getname() + " you failed to notice that ")
