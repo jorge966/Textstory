@@ -160,6 +160,19 @@ def Lanegame():
                         randomdamage = random.randint(30,40)
                         puck.Sethp(puck.Gethp() - randomdamage)
                         print("you now have " + (str(puck.Gethp())) + " Hp")
+                if move_pick == "2":
+                    print("you get very close to the tinker hoping to catch him with your waning rift and... ")
+                    randomrift = random.randint(1,2)
+                    if randomrift == 1:
+                        print("with great success you hit him with your " + puck.Getpuck_attack2().Getname() + " and damage and silence him!")
+                        tinker.Sethp(tinker.Gethp() - puck.Getpuck_attack2().GetDamage())
+                        print("and with that tinker now has " + (str(tinker.Gethp())) + " Hp")
+                    if randomrift == 2:
+                        print("with horrible aim you whiff your waning rift and tinker takes advantage and hits your with his " + tinker.Gettinker_attack2().Getname())
+                        puck.Sethp(puck.Gethp() - tinker.Gettinker_attack2().GetDamage())
+                        print(" you now have " + (str(puck.Gethp())) + " Hp")
+
+
 
             #for x in (len(puckmoves)):
              #   print(vars(puckmoves(x)))
